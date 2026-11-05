@@ -1,0 +1,23 @@
+/* Keep the cinematic canvas tied to the viewport, even when a form grows. */
+.scene-background{position:fixed;contain:strict;isolation:isolate;pointer-events:none}
+.background-layer{contain:paint;will-change:opacity,transform}
+.background-image{width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;display:block}
+.scene-stage{min-width:0}
+/* The document already blurs the backdrop; its transparent rows need no second pass. */
+.document-choices .choice-card{backdrop-filter:none;-webkit-backdrop-filter:none}
+.flower-button{filter:none}
+/* Release the promoted wheel strips after their single spin. */
+.wheel:not(:disabled) .wheel-strip,.wheel[aria-pressed=true] .wheel-strip,.wheel-muted .wheel-strip{will-change:auto}
+@media(max-width:600px),(pointer:coarse){
+  /* The backdrop image itself is preblurred. Preserve glass tint without extra surfaces. */
+  .glass-button,.choice-card,.wheel{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .document-sheet,.date-panel{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+}
+@media(hover:none){
+  .glass-button:hover{transform:none;background:var(--glass);box-shadow:0 8px 28px #00000018,inset 0 1px 0 #ffffff0d}
+  .glass-button:active{transform:scale(.98)}
+}
+@media(prefers-reduced-motion:reduce){.background-layer,.wheel-strip{will-change:auto}}
+@media(prefers-reduced-transparency:reduce){
+  .glass-button,.choice-card,.wheel,.document-sheet,.date-panel{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
