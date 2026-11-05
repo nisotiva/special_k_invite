@@ -20,7 +20,7 @@ describe('Complete story', () => {
     fireEvent.click(await screen.findByRole('button', { name: 'Продолжить' }, { timeout: 2000 }));
     const rose = await screen.findByRole('button', { name: 'Роза', exact: true });
     fireEvent.click(rose);
-    expect(screen.getByRole('status').textContent).toContain('Ты уверена');
+    expect(screen.getByRole('status').textContent).toContain('Вы уверены');
     expect(rose.querySelector('img')).not.toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Ни один. Все прекрасны' }));
     expect(rose.hasAttribute('disabled')).toBe(true);
@@ -37,7 +37,7 @@ describe('Complete story', () => {
     expect(screen.getByText('ПОЛНОМОЧИЯ ПОДТВЕРЖДЕНЫ')).toBeDefined();
     fireEvent.click(await screen.findByRole('button', { name: 'Продолжить' }));
     fireEvent.click(await screen.findByRole('button', { name: 'Ужасы' }));
-    expect(screen.getByRole('status').textContent).toContain('Попробуй ещё раз');
+    expect(screen.getByRole('status').textContent).toContain('Попробуйте ещё раз');
     fireEvent.click(screen.getByRole('button', { name: 'Мюзиклы' }));
     await screen.findByText('Да. Именно мюзиклы.');
     await screen.findByRole('heading', { name: 'Но...' }, { timeout: 2000 });

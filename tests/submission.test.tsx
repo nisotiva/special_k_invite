@@ -96,18 +96,18 @@ describe('Date form with a configured endpoint', () => {
     await waitFor(() => expect(onConfirmed).toHaveBeenCalledTimes(1));
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
-  it('restores the final scene without resending and provides honest status plus copying', async () => {
+  it('restores the final scene without resending and retains copying', async () => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ scene: 'date', completed: ['question', 'flowers', 'nights', 'attorney', 'musicals'] }));
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(opaqueResponse());
     const view = render(<SceneManager />);
     fireEvent.click(await screen.findByRole('button', { name: 'Воспользоваться полномочиями' }));
     await screen.findByRole('heading', { name: /Ваше предложение принято к рассмотрению/ }, { timeout: 3000 });
-    expect(screen.getByText('С нетерпением жду нашей встречи ♡')).toBeDefined();
+    expect(screen.getByText('С нетерпением жду выбранного Вами времени')).toBeDefined();
     const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY)!);
     expect(saved.scene).toBe('confirmation');
     expect(saved.receipt.time).toBe('21:15');
     expect(saved.receipt.delivery).toBe('unverified');
-    expect(screen.getByText('Запрос отправлен. Браузер не может подтвердить доставку в Discord.')).toBeDefined();
+    expect(screen.queryByText('Запрос отправлен. Браузер не может подтвердить доставку в Discord.')).toBeNull();
     expect(screen.getByRole('button', { name: 'Скопировать дату и время' })).toBeDefined();
     view.unmount();
     render(<SceneManager />);

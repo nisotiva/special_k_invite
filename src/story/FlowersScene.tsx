@@ -17,6 +17,6 @@ export function FlowersScene({ solved, onSolve, onContinue }: StorySceneProps) {
       </motion.div>)}
       {solved && <motion.div className="bouquet-ribbon" aria-hidden="true" initial={{ opacity: 0, scale: .7 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: reduced ? 0 : 1, duration: .7 }}>∞</motion.div>}
     </div>
-    {!solved ? <><p className="story-feedback" role="status">{hasError ? 'Ты уверена, что именно он лишний?' : '\u00a0'}</p><button className="glass-button" onClick={onSolve}>Ни один. Все прекрасны</button></> : <div className="flower-result"><Reveal delay={1.25}><blockquote className="flower-quote">«И цветов не бывает много. Они все прекрасны, начиная от маленького лютика и заканчивая благородными розами»</blockquote><p className="story-caption">Кажется, кто-то однажды сказал очень красивые слова</p></Reveal><Delayed delay={2700}><ContinueButton onClick={onContinue} /></Delayed></div>}
+    {!solved ? <><p className="story-feedback" role="status">{hasError ? 'Вы уверены, что именно он лишний?' : '\u00a0'}</p><button className="glass-button" onClick={onSolve}>Ни один. Все прекрасны</button></> : <div className="flower-result"><Reveal delay={1.25}><blockquote className="flower-quote">«И цветов не бывает много. Они все прекрасны, начиная от маленького лютика и заканчивая благородными розами»</blockquote><p className="story-caption">Кажется, кто-то однажды сказал очень красивые слова</p></Reveal><Delayed delay={2700}><ContinueButton onClick={onContinue} /></Delayed></div>}
   </motion.section>;
 }

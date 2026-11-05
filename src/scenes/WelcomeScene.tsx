@@ -7,7 +7,7 @@ export function WelcomeScene({ onStart }: { onStart: () => void }) {
     <motion.h1 id="welcome-title" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .35, duration: .9 }}>Привет,<br/><span className="title-soft">незнакомка!</span></motion.h1>
     <motion.div className="intro-copy" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .65, duration: .85 }}>
       <p>Увы, этот сайт был создан только для одного человека.</p>
-      <p>Но если это всё-таки ты...<br/>Думаю, небольшая проверка нам не помешает</p>
+      <p>Но если это всё-таки Вы...<br/>Думаю, небольшая проверка нам не помешает</p>
     </motion.div>
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .95, duration: .8 }}>
       <button className="glass-button group" onClick={onStart}>Начать проверку <Arrow /></button>

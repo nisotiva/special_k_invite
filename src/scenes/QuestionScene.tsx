@@ -19,11 +19,11 @@ export function QuestionScene({ onContinue, onSolved }: { onContinue: () => void
   };
   return <section className="question text-center" aria-labelledby="question-title">
     <p className="eyebrow">ПРОВЕРКА 01</p>
-    <h1 id="question-title">Какую машину<br/>ты мне продала?</h1>
-    <p className="subtitle">Надеюсь, память тебя не подведёт</p>
+    <h1 id="question-title">Какую машину<br/>Вы мне продали?</h1>
+    <p className="subtitle">Надеюсь, память Вас не подведёт</p>
     <CarWheelPicker {...{ options, solved, wrong, onStop }} ready={stopped.length === 3} onSelect={choose} />
     <div className="answer-area">
-      <p className={`answer-message ${solved ? 'answer-correct' : ''}`} role="status" aria-live="polite">{solved ? 'Ладно, похоже, это действительно ты ♡' : wrong ? 'Хм... А ты точно тот самый человек?' : stopped.length === 3 ? 'Выбери тот самый автомобиль' : 'Немного терпения. Вспоминаем…'}</p>
+      <p className={`answer-message ${solved ? 'answer-correct' : ''}`} role="status" aria-live="polite">{solved ? 'Ладно, похоже, это действительно Вы' : wrong ? 'Хм... А Вы точно тот самый человек?' : stopped.length === 3 ? 'Выберите тот самый автомобиль' : 'Немного терпения. Вспоминаем…'}</p>
       <AnimatePresence>{canContinue && <motion.button className="glass-button" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} onClick={onContinue}>Продолжить <Arrow /></motion.button>}</AnimatePresence>
     </div>
   </section>;

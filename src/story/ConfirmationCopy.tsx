@@ -14,5 +14,5 @@ export function ConfirmationCopy({ receipt }: { receipt: Receipt }) {
       setMessage('Дата и время скопированы. Их можно отправить мне удобным способом.');
     } catch { setManual(true); setMessage('Скопируйте выделенный текст вручную.'); }
   }
-  return <div><p className="story-caption" role="status">Запрос отправлен. Браузер не может подтвердить доставку в Discord.</p><button type="button" className="copy-button" onClick={copy}>Скопировать дату и время</button><p className="copy-feedback" role="status">{message}</p>{manual && <textarea className="manual-copy" ref={input} readOnly value={summary} rows={4} aria-label="Дата и время для копирования" />}</div>;
+  return <div><button type="button" className="copy-button" onClick={copy}>Скопировать дату и время</button><p className="copy-feedback" role="status">{message}</p>{manual && <textarea className="manual-copy" ref={input} readOnly value={summary} rows={4} aria-label="Дата и время для копирования" />}</div>;
 }

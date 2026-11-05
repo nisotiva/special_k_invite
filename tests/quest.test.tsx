@@ -25,12 +25,12 @@ describe('Personal quest', () => {
     const labels = choices.map(button => button.getAttribute('aria-label'));
     const incorrect = choices.find(button => button.getAttribute('aria-label') !== 'Выбрать Regalia')!;
     fireEvent.click(incorrect);
-    expect(screen.getByRole('status').textContent).toBe('Хм... А ты точно тот самый человек?');
+    expect(screen.getByRole('status').textContent).toBe('Хм... А Вы точно тот самый человек?');
     expect(onSolved).not.toHaveBeenCalled();
     expect(screen.getAllByRole('button').map(button => button.getAttribute('aria-label'))).toEqual(labels);
     fireEvent.click(screen.getByRole('button', { name: 'Выбрать Regalia' }));
     expect(onSolved).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('status').textContent).toBe('Ладно, похоже, это действительно ты ♡');
+    expect(screen.getByRole('status').textContent).toBe('Ладно, похоже, это действительно Вы');
     expect(screen.queryByRole('button', { name: 'Продолжить' })).toBeNull();
     expect(choices.every(button => button.hasAttribute('disabled'))).toBe(true);
     await waitFor(() => expect(screen.getByRole('button', { name: 'Продолжить' })).toBeDefined(), { timeout: 2000 });
