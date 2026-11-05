@@ -5,6 +5,7 @@ import { SceneManager } from './scenes/SceneManager';
 import './style.css';
 import './story.css';
 import './performance.css';
+import './typography.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><MotionConfig reducedMotion="user"><SceneManager /></MotionConfig></React.StrictMode>,

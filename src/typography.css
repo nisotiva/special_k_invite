@@ -1,0 +1,101 @@
+/* Shared type scale. Layout, scene colours and animations stay in their own stylesheets. */
+:root {
+  --font-ui: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-editorial: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --type-welcome: clamp(44px, 6vw, 64px);
+  --type-heading: clamp(36px, 4.4vw, 52px);
+  --type-invitation: clamp(34px, 4.1vw, 48px);
+  --type-quote: clamp(33px, 4vw, 46px);
+  --type-body: clamp(14px, 1.2vw, 15px);
+  --type-control: 13px;
+  --type-small: 12px;
+  --type-caption: 11px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+  font-kerning: normal;
+  font-optical-sizing: auto;
+}
+
+button, input, select, textarea { font-family: var(--font-ui); font-style: normal; }
+strong { font-weight: 600; }
+
+h1, .question h1, .success h1, .story-scene h1, .document-scene h1,
+.date-scene h1, .confirmation-scene h1, .invitation-scene h1 {
+  font-family: var(--font-editorial);
+  font-size: var(--type-heading);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.welcome h1 { font-size: var(--type-welcome); line-height: 1.06; }
+.invitation-scene h1 { font-size: var(--type-invitation); line-height: 1.18; }
+.nights-scene .story-quotation { font-size: var(--type-quote); line-height: 1.28; letter-spacing: -.01em; }
+.interlude-scene h1 { font-size: clamp(46px, 6vw, 64px); }
+
+.intro-copy, .subtitle, .story-subtitle, .story-response, .document-result .story-response,
+.invitation-paragraph, .date-intro {
+  font-family: var(--font-ui);
+  font-size: var(--type-body);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+.intro-copy, .story-response { max-width: 32em; }
+.invitation-paragraph { max-width: 34em; margin-bottom: 24px; }
+
+.glass-button, .choice-card, .document-choices .choice-card, .flower-button span,
+.copy-button, .time-field select, .manual-copy {
+  font-family: var(--font-ui);
+  font-size: var(--type-control);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .005em;
+}
+.wheel-row { font-family: var(--font-ui); font-size: clamp(16px, 1.7vw, 20px); font-weight: 500; letter-spacing: -.015em; }
+.eyebrow { font-family: var(--font-ui); font-size: 10px; font-weight: 600; line-height: 1.6; letter-spacing: .2em; }
+.authority-stamp { font-family: var(--font-ui); font-size: 10px; font-style: normal; font-weight: 600; letter-spacing: .15em; }
+.clause-number { font-family: var(--font-ui); font-style: normal; font-size: var(--type-caption); font-weight: 500; }
+
+.story-caption, .button-note, .time-hint, .time-field label, .connection-note,
+.copy-feedback { font-family: var(--font-ui); font-size: var(--type-caption); font-weight: 400; line-height: 1.75; letter-spacing: .01em; }
+.story-feedback, .answer-message, .form-feedback, .date-summary {
+  font-family: var(--font-ui); font-size: var(--type-small); font-weight: 400; line-height: 1.75; letter-spacing: 0;
+}
+.calendar-month { font-family: var(--font-ui); font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: -.01em; }
+.calendar-header button { font-family: var(--font-ui); font-size: 26px; font-style: normal; font-weight: 400; line-height: 1; }
+.calendar-days button { font-family: var(--font-ui); font-size: 12px; font-weight: 500; line-height: 1; }
+.calendar-weekdays { font-family: var(--font-ui); font-size: var(--type-caption); font-weight: 500; line-height: 1.5; }
+.calendar, .time-field select, .clause-number, .date-summary { font-variant-numeric: tabular-nums; }
+
+.flower-quote, .musical-answer, .date-question, .meeting-note, .success-copy {
+  font-family: var(--font-editorial); font-style: italic; font-weight: 500; letter-spacing: -.01em; text-wrap: balance;
+}
+.flower-quote { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.45; }
+.musical-answer, .success-copy { font-size: clamp(28px, 3.3vw, 38px); line-height: 1.25; }
+.date-question { font-size: clamp(27px, 3vw, 32px); line-height: 1.3; }
+.meeting-note { font-size: clamp(22px, 2.4vw, 26px); line-height: 1.45; }
+.bouquet-ribbon { font-family: var(--font-editorial); }
+
+@media (max-width: 600px) {
+  :root { --type-control: 12px; }
+  .intro-copy { max-width: 23em; }
+  .intro-copy p:first-child { max-width: 22em; }
+  .invitation-paragraph { margin-bottom: 22px; }
+  .document-choices .choice-card { font-size: 12px; line-height: 1.7; }
+  .authority-stamp { font-size: 9px; letter-spacing: .12em; }
+  .date-summary .glass-button { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  :root { --type-heading: 33px; --type-invitation: 32px; }
+}
+@media (max-height: 700px) and (min-width: 601px) {
+  .welcome h1 { font-size: var(--type-heading); }
+}
