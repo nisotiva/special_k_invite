@@ -41,7 +41,7 @@ describe('Complete story', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Мюзиклы' }));
     await screen.findByText('Да. Именно мюзиклы.');
     await screen.findByRole('heading', { name: 'Но...' }, { timeout: 2000 });
-    await screen.findByRole('heading', { name: /Кажется, у меня впервые возникло желание/ }, { timeout: 3000 });
+    await screen.findByRole('heading', { name: /Кажется, у меня впервые появилось искреннее желание/ }, { timeout: 3000 });
     fireEvent.click(await screen.findByRole('button', { name: 'И что дальше?' }));
     await screen.findByRole('heading', { name: 'Осталась одна формальность' });
     const day = new Date(); day.setDate(day.getDate() + 2);
